@@ -1,0 +1,54 @@
+<configuration>
+
+    <logger name="c.r" level="WARN"/>
+    <logger name="io.netty" level="WARN"/>
+
+
+    <appender name="FILE-CLIENT" class="ch.qos.logback.core.FileAppender">
+        <file>logs/client.log</file>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-SERVER" class="ch.qos.logback.core.FileAppender">
+        <file>logs/server.log</file>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="edu.rahulk.cs8982.singlefs.server" level="info">
+        <appender-ref ref="FILE-SERVER" />
+    </logger>
+
+    <logger name="edu.rahulk.cs8982.singlefs.db" level="info">
+        <appender-ref ref="FILE-SERVER" />
+    </logger>
+
+    <logger name="edu.rahulk.cs8982.singlefs.models" level="info">
+        <appender-ref ref="FILE-SERVER" />
+    </logger>
+
+    <logger name="edu.rahulk.cs8982.singlefs.client" level="info">
+        <appender-ref ref="FILE-CLIENT" />
+    </logger>
+
+    <root level="warn">
+        <!--  <appender-ref ref="FILE" /> -->
+    </root>
+</configuration>
